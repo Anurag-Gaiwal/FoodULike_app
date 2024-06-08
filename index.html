@@ -1,0 +1,92 @@
+<html>
+<head>	
+	<title>Food App By Anurag Gaiwal</title>
+	<style>
+		*{
+		  font-size:50px
+		}
+
+		body {
+		  background-color: lightblue;
+		  font-family: Arial, sans-serif; 
+		}
+
+		h1 {
+		  font-size: 2em; 
+		  margin-bottom: 20px;
+		}
+
+		input[type="text"] {
+		  padding: 10px;
+		  border: 1px solid #ccc;
+		  margin-bottom: 15px;
+		}
+
+		input[type="submit"] {
+		  background-color: #4CAF50; 
+		  color: white;
+		  padding: 10px 20px;
+		  border: none;
+		  border-radius: 5px;
+		  cursor: pointer; 
+		}
+
+		input[type="radio"]{
+			width:2%; 
+			height:0.5em;
+		}
+		
+		#msg {	
+		  color: #333; 
+		}
+
+		
+		.container{
+			border: 2px solid black;
+			width: 50%;
+		}
+
+	</style>
+</head>
+
+<body>
+<center>
+	<h1> Food You Like App</h1>
+	<form onsubmit="show()">
+		<input type="text" placeholder="Enter Name" id="name"/>
+		<br/> <br/>
+		<input type="radio" name="f" id="ni" checked=true/> North Indian
+		<input type="radio" name="f" id="si"/> South Indian
+		<input type="radio" name="f" id="pa"/> Panjabi
+		<input type="radio" name="f" id="ff"/> Fast food
+		<br/> <br/>
+		<input type="submit" value="submit">
+	</form>
+	<div class="container">
+	<h2 id="msg"/>
+	</div>
+	<script>
+		function show(){
+		event.preventDefault()
+		let name = document.getElementById("name");
+		let msg = document.getElementById("msg");
+		let ni = document.getElementById("ni");
+		let si = document.getElementById("si");
+		let pa = document.getElementById("pa");
+		let ff = document.getElementById("ff");
+			
+		let choice = "";
+		if(ni.checked)		choice = " North Indian ";
+		else if(si.checked)	choice = " South Indian ";
+		else if(pa.checked)	choice = " Panjabi ";
+		else if(ff.checked)	choice = " Fast Food ";
+
+		let ans = name.value + " Likes " + choice;
+		msg.innerHTML = ans;
+		}
+	</script>
+</center>
+</body>
+
+
+</html>
